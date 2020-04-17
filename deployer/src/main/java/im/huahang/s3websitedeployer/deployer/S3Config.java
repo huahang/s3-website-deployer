@@ -18,6 +18,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Collections;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class S3Config {
     public static String CONFIG_FILE_NAME = ".s3_website_deployer_config.json";
@@ -67,7 +68,7 @@ public class S3Config {
     }
 
     @SerializedName("config_items")
-    public Map<String, ConfigItem> configItems = Collections.emptyMap();
+    public Map<String, ConfigItem> configItems = new TreeMap<>();
 
     public static S3Config load() {
         final File configFile = new File(getConfigFileName());
